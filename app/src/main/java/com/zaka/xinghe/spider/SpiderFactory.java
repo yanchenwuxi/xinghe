@@ -25,7 +25,7 @@ public final class SpiderFactory {
 
         // Python
         if ("python".equals(type) || api.endsWith(".py") || ext.endsWith(".py")) {
-            return PythonEngine.create(ctx, api, ext);
+            return new PythonEngine(ctx, api, ext);
         }
 
         // JS：type / typeCode / 扩展名
