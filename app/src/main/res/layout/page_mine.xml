@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/c_bg">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/page_padding"
+            android:paddingRight="@dimen/page_padding"
+            android:paddingBottom="16.0dip">
+
+            <!-- 顶部信息卡 -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14.0dip"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_card"
+                android:padding="14.0dip">
+
+                <ImageView
+                    android:layout_width="46.0dip"
+                    android:layout_height="46.0dip"
+                    android:background="@drawable/bg_avatar"
+                    android:padding="10.0dip"
+                    android:src="@drawable/ic_tab_mine" />
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:layout_marginLeft="12.0dip"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvAppName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_16dp"
+                        android:textColor="@color/c_text"
+                        android:text="@string/app_name" />
+
+                    <TextView
+                        android:id="@+id/tvVersion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3.0dip"
+                        android:textSize="@dimen/text_11dp"
+                        android:textColor="@color/c_text_dim" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 当前接口 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18.0dip"
+                android:layout_marginBottom="8.0dip"
+                android:textSize="@dimen/text_13dp"
+                android:textColor="@color/c_text_dim"
+                android:text="当前接口" />
+
+            <LinearLayout
+                android:id="@+id/curSiteBox"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:paddingLeft="14.0dip"
+                android:paddingRight="14.0dip" />
+
+            <!-- 功能网格 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18.0dip"
+                android:layout_marginBottom="8.0dip"
+                android:textSize="@dimen/text_13dp"
+                android:textColor="@color/c_text_dim"
+                android:text="功能" />
+
+            <GridView
+                android:id="@+id/menuGrid"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="4"
+                android:verticalSpacing="6.0dip"
+                android:horizontalSpacing="6.0dip"
+                android:background="@drawable/bg_card"
+                android:paddingTop="10.0dip"
+                android:paddingBottom="10.0dip"
+                android:listSelector="@color/transparent"
+                android:scrollbars="none"
+                android:overScrollMode="never" />
+
+            <!-- 其它 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18.0dip"
+                android:layout_marginBottom="8.0dip"
+                android:textSize="@dimen/text_13dp"
+                android:textColor="@color/c_text_dim"
+                android:text="其它" />
+
+            <LinearLayout
+                android:id="@+id/otherBox"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:paddingLeft="14.0dip"
+                android:paddingRight="14.0dip" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_dialog_top"
+    android:minHeight="320.0dip"
+    android:paddingBottom="10.0dip">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="16.0dip"
+        android:paddingRight="8.0dip">
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:textSize="@dimen/text_16dp"
+            android:textColor="@color/c_text"
+            android:text="@string/player_subtitle" />
+
+        <ImageView
+            android:id="@+id/btnClose"
+            android:layout_width="38.0dip"
+            android:layout_height="38.0dip"
+            android:padding="8.0dip"
+            android:alpha="0.7"
+            android:src="@drawable/ic_close" />
+    </LinearLayout>
+
+    <!-- 字幕偏移 -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_sub_panel"
+        android:layout_marginLeft="12.0dip"
+        android:layout_marginRight="12.0dip"
+        android:padding="10.0dip">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:textSize="@dimen/text_13dp"
+                android:textColor="@color/c_text_sub"
+                android:text="@string/player_offset" />
+
+            <TextView
+                android:id="@+id/tvOffset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_14dp"
+                android:textColor="@color/c_accent"
+                android:text="+0.0s" />
+
+            <TextView
+                android:id="@+id/btnOffsetZero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12.0dip"
+                android:paddingLeft="10.0dip"
+                android:paddingRight="10.0dip"
+                android:paddingTop="4.0dip"
+                android:paddingBottom="4.0dip"
+                android:textSize="@dimen/text_12dp"
+                android:textColor="@color/c_text"
+                android:background="@drawable/bg_chip"
+                android:text="@string/player_offset_zero" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8.0dip"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnM5"
+                android:layout_width="0.0dip"
+                android:layout_height="34.0dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:textSize="@dimen/text_12dp"
+                android:textColor="@color/c_text"
+                android:background="@drawable/bg_chip"
+                android:text="-5s" />
+
+            <TextView
+                android:id="@+id/btnM1"
+                android:layout_width="0.0dip"
+                android:layout_height="34.0dip"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="6.0dip"
+                android:gravity="center"
+                android:textSize="@dimen/text_12dp"
+                android:textColor="@color/c_text"
+                android:background="@drawable/bg_chip"
+                android:text="-1s" />
+
+            <TextView
+                android:id="@+id/btnM01"
+                android:layout_width="0.0dip"
+                android:layout_height="34.0dip"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="6.0dip"
+                android:gravity="center"
+                android:textSize="@dimen/text_12dp"
+                android:textColor="@color/c_text"
+                android:background="@drawable/bg_chip"
+                android:text="-0.1s" />
+
+            <TextView
+                android:id="@+id/btnP01"
+                android:layout_width="0.0dip"
+                android:layout_height="34.0dip"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="6.0dip"
+                android:gravity="center"
+                android:textSize="@dimen/text_12dp"
+                android:textColor="@color/c_text"
+                android:background="@drawable/bg_chip"
+                android:text="+0.1s" />
+
+            <TextView
+                android:id="@+id/btnP1"
+                android:layout_width="0.0dip"
+                android:layout_height="34.0dip"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="6.0dip"
+                android:gravity="center"
+                android:textSize="@dimen/text_12dp"
+                android:textColor="@color/c_text"
+                android:background="@drawable/bg_chip"
+                android:text="+1s" />
+
+            <TextView
+                android:id="@+id/btnP5"
+                android:layout_width="0.0dip"
+                android:layout_height="34.0dip"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="6.0dip"
+                android:gravity="center"
+                android:textSize="@dimen/text_12dp"
+                android:textColor="@color/c_text"
+                android:background="@drawable/bg_chip"
+                android:text="+5s" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 字幕搜索 -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="44.0dip"
+        android:layout_marginTop="10.0dip"
+        android:layout_marginLeft="12.0dip"
+        android:layout_marginRight="12.0dip"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_search_bar"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip">
+
+        <EditText
+            android:id="@+id/etSubKeyword"
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@null"
+            android:hint="@string/player_sub_search"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textColor="@color/c_text"
+            android:textColorHint="@color/c_text_dim"
+            android:textSize="@dimen/text_13dp" />
+
+        <TextView
+            android:id="@+id/btnSubSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6.0dip"
+            android:textSize="@dimen/text_13dp"
+            android:textColor="@color/c_accent"
+            android:text="搜索" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6.0dip"
+        android:layout_marginLeft="16.0dip"
+        android:textSize="@dimen/text_12dp"
+        android:textColor="@color/c_text_dim"
+        android:text="字幕源：迅雷（免登录）" />
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:layout_marginTop="4.0dip">
+
+        <ListView
+            android:id="@+id/subList"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="@color/c_divider"
+            android:dividerHeight="0.5dip"
+            android:scrollbars="none"
+            android:listSelector="@color/transparent"
+            android:overScrollMode="never" />
+
+        <TextView
+            android:id="@+id/subState"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textSize="@dimen/text_13dp"
+            android:textColor="@color/c_text_dim"
+            android:text="@string/player_sub_none" />
+    </FrameLayout>
+</LinearLayout>

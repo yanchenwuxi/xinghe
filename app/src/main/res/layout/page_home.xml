@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/c_bg">
+
+    <!-- 顶部：站点名 + 搜索框 + 刷新 -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="10.0dip"
+        android:paddingBottom="6.0dip"
+        android:paddingLeft="@dimen/page_padding"
+        android:paddingRight="@dimen/page_padding">
+
+        <TextView
+            android:id="@+id/siteName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="@dimen/search_site_max_width"
+            android:singleLine="true"
+            android:ellipsize="middle"
+            android:textSize="@dimen/text_15dp"
+            android:textColor="@color/white"
+            android:text="@string/app_name" />
+
+        <LinearLayout
+            android:id="@+id/searchBar"
+            android:layout_width="0.0dip"
+            android:layout_height="@dimen/search_bar_height"
+            android:layout_weight="1.0"
+            android:layout_marginLeft="8.0dip"
+            android:layout_marginRight="8.0dip"
+            android:background="@drawable/bg_search_bar"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip">
+
+            <ImageView
+                android:layout_width="15.0dip"
+                android:layout_height="15.0dip"
+                android:alpha="0.6"
+                android:src="@drawable/ic_search" />
+
+            <TextView
+                android:id="@+id/searchHint"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="8.0dip"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="@dimen/text_13dp"
+                android:textColor="@color/c_text_dim"
+                android:text="@string/search_hint" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnRefresh"
+            android:layout_width="@dimen/search_bar_icon_size"
+            android:layout_height="@dimen/search_bar_icon_size"
+            android:padding="2.0dip"
+            android:alpha="0.75"
+            android:src="@drawable/ic_refresh" />
+    </LinearLayout>
+
+    <!-- 分类 Tab -->
+    <HorizontalScrollView
+        android:id="@+id/tabScroll"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/home_tab_height"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:id="@+id/cateBar"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/page_padding"
+            android:paddingRight="@dimen/page_padding" />
+    </HorizontalScrollView>
+
+    <!-- 筛选条（有筛选数据时出现） -->
+    <HorizontalScrollView
+        android:id="@+id/filterScroll"
+        android:layout_width="fill_parent"
+        android:layout_height="34.0dip"
+        android:scrollbars="none"
+        android:visibility="gone"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:id="@+id/filterBar"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/page_padding"
+            android:paddingRight="@dimen/page_padding" />
+    </HorizontalScrollView>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:layout_marginTop="@dimen/home_tab_content_gap">
+
+        <GridView
+            android:id="@+id/grid"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:numColumns="3"
+            android:horizontalSpacing="8.0dip"
+            android:verticalSpacing="8.0dip"
+            android:paddingLeft="@dimen/page_padding"
+            android:paddingRight="@dimen/page_padding"
+            android:paddingTop="4.0dip"
+            android:paddingBottom="6.0dip"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            android:listSelector="@color/transparent"
+            android:overScrollMode="never" />
+
+        <LinearLayout
+            android:id="@+id/stateBox"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/stateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_14dp"
+                android:textColor="@color/c_text_dim"
+                android:text="@string/loading" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/footState"
+        android:layout_width="fill_parent"
+        android:layout_height="34.0dip"
+        android:gravity="center"
+        android:textSize="@dimen/text_12dp"
+        android:textColor="@color/c_text_dim"
+        android:background="@color/c_bg" />
+</LinearLayout>

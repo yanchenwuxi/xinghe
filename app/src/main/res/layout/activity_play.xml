@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/c_player_bg">
+
+    <SurfaceView
+        android:id="@+id/surface"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <!-- 字幕层（自绘） -->
+    <com.zaka.xinghe.view.SubtitleView
+        android:id="@+id/subtitleView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <!-- 手势提示 -->
+    <LinearLayout
+        android:id="@+id/gestureTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_toast"
+        android:paddingLeft="14.0dip"
+        android:paddingRight="14.0dip"
+        android:paddingTop="8.0dip"
+        android:paddingBottom="8.0dip"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/gestureIcon"
+            android:layout_width="20.0dip"
+            android:layout_height="20.0dip"
+            android:layout_marginRight="6.0dip"
+            android:src="@drawable/ic_volume" />
+
+        <TextView
+            android:id="@+id/gestureText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_14dp"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- 加载态 -->
+    <LinearLayout
+        android:id="@+id/loadingBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="34.0dip"
+            android:layout_height="34.0dip" />
+
+        <TextView
+            android:id="@+id/loadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8.0dip"
+            android:textSize="@dimen/text_13dp"
+            android:textColor="@color/white"
+            android:text="@string/loading" />
+    </LinearLayout>
+
+    <!-- 错误态 -->
+    <LinearLayout
+        android:id="@+id/errorBox"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/errorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_14dp"
+            android:textColor="@color/white"
+            android:text="@string/player_error" />
+
+        <TextView
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14.0dip"
+            android:paddingLeft="24.0dip"
+            android:paddingRight="24.0dip"
+            android:paddingTop="8.0dip"
+            android:paddingBottom="8.0dip"
+            android:textSize="@dimen/text_14dp"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_btn_accent"
+            android:text="@string/retry" />
+    </LinearLayout>
+
+    <!-- 控制层 -->
+    <FrameLayout
+        android:id="@+id/controlLayer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <!-- 顶部 -->
+        <LinearLayout
+            android:layout_gravity="top"
+            android:layout_width="fill_parent"
+            android:layout_height="52.0dip"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_player_top"
+            android:paddingLeft="6.0dip"
+            android:paddingRight="6.0dip">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40.0dip"
+                android:layout_height="40.0dip"
+                android:padding="9.0dip"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="@dimen/text_15dp"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/btnLock"
+                android:layout_width="40.0dip"
+                android:layout_height="40.0dip"
+                android:padding="9.0dip"
+                android:src="@drawable/ic_unlock" />
+        </LinearLayout>
+
+        <!-- 中间播放按钮 -->
+        <ImageView
+            android:id="@+id/btnCenter"
+            android:layout_width="56.0dip"
+            android:layout_height="56.0dip"
+            android:layout_gravity="center"
+            android:padding="12.0dip"
+            android:background="@drawable/bg_play_center"
+            android:src="@drawable/ic_play" />
+
+        <!-- 底部 -->
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_player_bottom"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingBottom="6.0dip">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvCur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_11dp"
+                    android:textColor="@color/white"
+                    android:text="00:00" />
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:maxHeight="3.0dip"
+                    android:minHeight="3.0dip"
+                    android:progressDrawable="@drawable/progress_player"
+                    android:thumb="@drawable/thumb_player"
+                    android:paddingLeft="6.0dip"
+                    android:paddingRight="6.0dip" />
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_11dp"
+                    android:textColor="@color/white"
+                    android:text="00:00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="44.0dip"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/btnPlayPause"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:padding="11.0dip"
+                    android:src="@drawable/ic_pause" />
+
+                <ImageView
+                    android:id="@+id/btnNext"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:padding="11.0dip"
+                    android:src="@drawable/ic_next" />
+
+                <ImageView
+                    android:id="@+id/btnEpisodes"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:padding="11.0dip"
+                    android:src="@drawable/ic_episodes" />
+
+                <TextView
+                    android:id="@+id/btnSpeed"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_12dp"
+                    android:textColor="@color/white"
+                    android:text="1.0x" />
+
+                <ImageView
+                    android:id="@+id/btnSubtitle"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:padding="11.0dip"
+                    android:src="@drawable/ic_subtitle" />
+
+                <ImageView
+                    android:id="@+id/btnScale"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:padding="11.0dip"
+                    android:src="@drawable/ic_fullscreen" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 锁定后只留一个解锁按钮 -->
+        <ImageView
+            android:id="@+id/btnUnlockFloat"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="6.0dip"
+            android:padding="9.0dip"
+            android:alpha="0.7"
+            android:src="@drawable/ic_lock"
+            android:visibility="gone" />
+    </FrameLayout>
+</FrameLayout>

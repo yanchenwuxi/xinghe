@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/c_bg">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="52.0dip"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="6.0dip"
+        android:paddingRight="@dimen/page_padding">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:padding="9.0dip"
+            android:src="@drawable/ic_back" />
+
+        <LinearLayout
+            android:layout_width="0.0dip"
+            android:layout_height="@dimen/search_bar_height"
+            android:layout_weight="1.0"
+            android:background="@drawable/bg_search_bar"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip">
+
+            <ImageView
+                android:layout_width="15.0dip"
+                android:layout_height="15.0dip"
+                android:alpha="0.6"
+                android:src="@drawable/ic_search" />
+
+            <EditText
+                android:id="@+id/etKeyword"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="8.0dip"
+                android:background="@null"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/c_text"
+                android:textColorHint="@color/c_text_dim"
+                android:textSize="@dimen/text_13dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dip"
+            android:padding="4.0dip"
+            android:textSize="@dimen/text_14dp"
+            android:textColor="@color/c_accent"
+            android:text="搜索" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/historyBox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/page_padding"
+        android:paddingRight="@dimen/page_padding">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:textSize="@dimen/text_13dp"
+                android:textColor="@color/c_text_dim"
+                android:text="搜索历史" />
+
+            <TextView
+                android:id="@+id/btnClearHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4.0dip"
+                android:textSize="@dimen/text_12dp"
+                android:textColor="@color/c_text_dim"
+                android:text="清空" />
+        </LinearLayout>
+
+        <com.zaka.xinghe.view.FlowLayout
+            android:id="@+id/flowHistory"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6.0dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16.0dip"
+            android:textSize="@dimen/text_13dp"
+            android:textColor="@color/c_text_dim"
+            android:text="热门搜索" />
+
+        <com.zaka.xinghe.view.FlowLayout
+            android:id="@+id/flowHot"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6.0dip"
+            android:layout_marginBottom="10.0dip" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0">
+
+        <GridView
+            android:id="@+id/grid"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:numColumns="3"
+            android:horizontalSpacing="8.0dip"
+            android:verticalSpacing="8.0dip"
+            android:paddingLeft="@dimen/page_padding"
+            android:paddingRight="@dimen/page_padding"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            android:listSelector="@color/transparent"
+            android:overScrollMode="never" />
+
+        <LinearLayout
+            android:id="@+id/stateBox"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/stateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_14dp"
+                android:textColor="@color/c_text_dim" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

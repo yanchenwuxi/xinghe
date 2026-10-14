@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/c_bg">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="44.0dip"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/page_padding"
+        android:paddingRight="@dimen/page_padding">
+
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:textSize="@dimen/text_17dp"
+            android:textColor="@color/c_text"
+            android:text="电视直播" />
+
+        <ImageView
+            android:id="@+id/btnRefresh"
+            android:layout_width="20.0dip"
+            android:layout_height="20.0dip"
+            android:alpha="0.7"
+            android:src="@drawable/ic_refresh" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="36.0dip"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:id="@+id/groupBar"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/page_padding"
+            android:paddingRight="@dimen/page_padding" />
+    </HorizontalScrollView>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0">
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="@color/c_divider"
+            android:dividerHeight="0.5dip"
+            android:scrollbars="none"
+            android:listSelector="@color/transparent"
+            android:overScrollMode="never" />
+
+        <TextView
+            android:id="@+id/emptyText"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:textSize="@dimen/text_14dp"
+            android:textColor="@color/c_text_dim"
+            android:text="没有直播源，可在设置里添加"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

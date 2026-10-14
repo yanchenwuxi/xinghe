@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="orange">#ffff5f00</color>
+
+    <!-- 主色板：对齐影视仓深色主题 -->
+    <color name="c_bg">#ff1b1d24</color>
+    <color name="c_bg_deep">#ff14161c</color>
+    <color name="c_bar">#ff1b1d24</color>
+    <color name="c_surface">#ff262a38</color>
+    <color name="c_surface_2">#ff32364e</color>
+    <color name="c_surface_3">#ff353744</color>
+    <color name="c_accent">#ffff5f00</color>
+    <color name="c_accent_blue">#ff1890ff</color>
+    <color name="c_text">#ffffffff</color>
+    <color name="c_text_sub">#b3ffffff</color>
+    <color name="c_text_dim">#80ffffff</color>
+    <color name="c_text_tab">#b3ffffff</color>
+    <color name="c_divider">#1affffff</color>
+    <color name="c_search_bg">#1fffffff</color>
+    <color name="c_search_bg_solid">#ff2a2e3c</color>
+    <color name="c_chip_bg">#ff2a2e3c</color>
+    <color name="c_chip_bg_on">#33ff5f00</color>
+    <color name="c_mask">#cc000000</color>
+    <color name="c_card_mask">#00000000</color>
+    <color name="c_flag_bg">#ffedc75f</color>
+    <color name="c_flag_text">#ff694000</color>
+    <color name="c_score">#ffffb300</color>
+    <color name="c_btn">#ffff5f00</color>
+    <color name="c_btn_press">#ccff5f00</color>
+    <color name="c_btn_gray">#ff2a2e3c</color>
+    <color name="c_ripple">#33ffffff</color>
+    <color name="c_player_bg">#ff000000</color>
+    <color name="c_subtitle_bg">#99000000</color>
+</resources>

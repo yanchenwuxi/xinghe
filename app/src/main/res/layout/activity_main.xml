@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/c_bg">
+
+    <FrameLayout
+        android:id="@+id/pageContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="@dimen/tab_bar_height" />
+
+    <LinearLayout
+        android:id="@+id/tabBar"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/tab_bar_height"
+        android:background="@color/c_bar">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/c_divider" />
+
+        <LinearLayout
+            android:id="@+id/tabContainer"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+</FrameLayout>

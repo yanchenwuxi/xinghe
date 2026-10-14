@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_10dp">10.0dip</dimen>
+    <dimen name="text_11dp">11.0dip</dimen>
+    <dimen name="text_12dp">12.0dip</dimen>
+    <dimen name="text_13dp">13.0dip</dimen>
+    <dimen name="text_14dp">14.0dip</dimen>
+    <dimen name="text_15dp">15.0dip</dimen>
+    <dimen name="text_16dp">16.0dip</dimen>
+    <dimen name="text_17dp">17.0dip</dimen>
+    <dimen name="text_18dp">18.0dip</dimen>
+    <dimen name="text_20dp">20.0dip</dimen>
+
+    <dimen name="page_padding">12.0dip</dimen>
+    <dimen name="tab_bar_height">55.0dip</dimen>
+    <dimen name="home_tab_height">38.0dip</dimen>
+    <dimen name="home_tab_content_gap">4.0dip</dimen>
+    <dimen name="search_bar_height">36.0dip</dimen>
+    <dimen name="search_site_max_width">90.0dip</dimen>
+    <dimen name="search_bar_icon_size">22.0dip</dimen>
+    <dimen name="grid_radius">8.0dip</dimen>
+    <dimen name="card_radius">12.0dip</dimen>
+</resources>
