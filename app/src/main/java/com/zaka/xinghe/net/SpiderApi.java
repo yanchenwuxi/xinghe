@@ -25,6 +25,12 @@ public final class SpiderApi {
 
     private static final Map<String, Spider> SPIDERS = new HashMap<String, Spider>();
 
+    private static void checkSpiderResult(String method, String json) throws Exception {
+        if (json != null && json.startsWith("ERR:")) {
+            throw new RuntimeException(method + " 失败: " + json.substring(4));
+        }
+    }
+
     private SpiderApi() {
     }
 
@@ -41,6 +47,7 @@ public final class SpiderApi {
     public static List<Cate> getCates(Site site) throws Exception {
         Spider sp = spider(site);
         String json = sp.homeContent(true);
+        checkSpiderResult("homeContent", json);
         List<Cate> out = new ArrayList<Cate>();
         if (Utils.empty(json)) return out;
         JSONObject root = new JSONObject(json);
@@ -64,12 +71,14 @@ public final class SpiderApi {
         HashMap<String, String> ext = new HashMap<String, String>();
         if (filters != null) ext.putAll(filters);
         String json = sp.categoryContent(cateId == null ? "" : cateId, String.valueOf(page <= 0 ? 1 : page), true, ext);
+        checkSpiderResult("categoryContent", json);
         return parseVodList(json, site);
     }
 
     public static List<Vod> search(Site site, String wd, int page) throws Exception {
         Spider sp = spider(site);
         String json = sp.searchContent(wd, false);
+        checkSpiderResult("searchContent", json);
         return parseVodList(json, site);
     }
 
@@ -78,6 +87,7 @@ public final class SpiderApi {
         List<String> ids = new ArrayList<String>();
         ids.add(id);
         String json = sp.detailContent(ids);
+        checkSpiderResult("detailContent", json);
         if (Utils.empty(json)) return null;
         JSONObject root = new JSONObject(json);
         JSONArray list = root.optJSONArray("list");
@@ -90,7 +100,9 @@ public final class SpiderApi {
 
     public static String playerContent(Site site, String flag, String id) throws Exception {
         Spider sp = spider(site);
-        return sp.playerContent(flag, id, new ArrayList<String>());
+        String json = sp.playerContent(flag, id, new ArrayList<String>());
+        checkSpiderResult("playerContent", json);
+        return json;
     }
 
     private static List<Vod> parseVodList(String json, Site site) {

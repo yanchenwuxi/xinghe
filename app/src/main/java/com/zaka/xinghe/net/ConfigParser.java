@@ -72,7 +72,12 @@ public final class ConfigParser {
                     JSONObject o = sites.optJSONObject(i);
                     if (o == null) continue;
                     Site s = siteFromJson(o, i);
-                    if (s != null) r.sites.add(s);
+                    if (s != null) {
+                        if (fallbackUrl != null && (fallbackUrl.startsWith("http://") || fallbackUrl.startsWith("https://"))) {
+                            s.baseUrl = fallbackUrl;
+                        }
+                        r.sites.add(s);
+                    }
                 }
             }
 
@@ -165,6 +170,20 @@ public final class ConfigParser {
         s.playUrl = o.optString("playUrl", "");
         s.jar = o.optString("jar", "");
         s.order = index;
+        // 二次纠正：api/ext 指向 .js 时强制 js
+        String apiL = s.api == null ? "" : s.api.toLowerCase();
+        String extL = s.ext == null ? "" : s.ext.toLowerCase();
+        if (apiL.endsWith(".js") || extL.endsWith(".js") || apiL.contains(".js?") || extL.contains(".js?")) {
+            if (!"python".equals(s.type) && !"spider".equals(s.type)) {
+                s.type = "js";
+                if (s.typeCode == 1) s.typeCode = 3;
+            }
+        }
+        // csp_ 且无 jar 但有 js → js
+        if (apiL.startsWith("csp_") && (extL.endsWith(".js") || extL.contains(".js"))) {
+            s.type = "js";
+            s.typeCode = 3;
+        }
         return s;
     }
 
@@ -174,12 +193,13 @@ public final class ConfigParser {
             if (h.contains("xml")) return "xml";
             if (h.contains("spider") || h.startsWith("csp")) return "spider";
             if (h.contains("js")) return "js";
-            if (h.contains("py")) return "python";
+            if (h.contains("py") || h.contains("python")) return "python";
         }
         switch (code) {
             case 0: return "xml";
             case 2: return "spider";
-            case 4: return "spider";
+            case 3: return "js";      // TVBox: type 3 = JS 爬虫
+            case 4: return "spider";  // Jar / csp
             default: return "cms";
         }
     }

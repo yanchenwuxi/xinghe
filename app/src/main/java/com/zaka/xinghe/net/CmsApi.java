@@ -52,8 +52,23 @@ public final class CmsApi {
                     s.name = o.optString("name", "站点" + (i + 1));
                     s.api = o.optString("api", "");
                     s.ext = o.optString("ext", "");
-                    int t = o.optInt("type", 3);
-                    s.type = t == 1 ? "xml" : "cms";
+                    s.typeCode = o.optInt("type", 1);
+                    s.jar = o.optString("jar", "");
+                    // 对齐 TVBox: 0 xml / 1 cms / 3 js / 4 spider
+                    switch (s.typeCode) {
+                        case 0: s.type = "xml"; break;
+                        case 2: s.type = "spider"; break;
+                        case 3: s.type = "js"; break;
+                        case 4: s.type = "spider"; break;
+                        default: s.type = "cms"; break;
+                    }
+                    String apiL = s.api.toLowerCase();
+                    String extL = s.ext.toLowerCase();
+                    if (apiL.endsWith(".js") || extL.endsWith(".js")) {
+                        s.type = "js";
+                        s.typeCode = 3;
+                    }
+                    if (url.startsWith("http")) s.baseUrl = url;
                     s.order = i;
                     if (Utils.empty(s.api)) continue;
                     s.key = Utils.md5(s.api + "#" + s.name);

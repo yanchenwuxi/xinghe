@@ -7,13 +7,12 @@ import java.util.List;
 /**
  * 采集站点（TVBox sites 数组项）。
  *
- * type 对齐 TVBox：
- *   0 = XML 源
- *   1 = JSON 源（苹果 CMS 风格）
- *   2 = 爬虫/JS 源（需要 QuickJS，本纯实现仅检测提示）
- *   3 = 标准 CMS（同 1）
- *   4 = 钻研等
- * 另支持 spider / python 标记，运行时给出友好提示。
+ * type 对齐 TVBox / 影视仓：
+ *   0 = XML
+ *   1 = JSON / 苹果 CMS
+ *   2 = 爬虫相关（部分源作 JS/Spider）
+ *   3 = JS 爬虫（QuickJS）
+ *   4 = Jar 爬虫（csp_ + jar）
  */
 public class Site implements Serializable {
 
@@ -30,6 +29,8 @@ public class Site implements Serializable {
     public boolean changeable = true;
     public String playUrl = "";
     public String jar = "";
+    /** 配置文件 base，用于拼接相对路径 api */
+    public String baseUrl = "";
     public List<Parse> parses = new ArrayList<Parse>();
 
     public Site() {
@@ -43,9 +44,15 @@ public class Site implements Serializable {
         this.typeCode = 1;
     }
 
+    public boolean isJs() {
+        return "js".equals(type) || typeCode == 3
+                || (api != null && api.toLowerCase().contains(".js"));
+    }
+
     public boolean isSpiderOrScript() {
         return "spider".equals(type) || "js".equals(type) || "python".equals(type)
-                || typeCode == 2 || typeCode == 4;
+                || typeCode == 2 || typeCode == 3 || typeCode == 4
+                || isJs();
     }
 
     public boolean isXml() {
