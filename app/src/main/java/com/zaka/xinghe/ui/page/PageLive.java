@@ -114,10 +114,11 @@ public class PageLive extends Page {
         }
         emptyText.setText(R.string.loading);
         emptyText.setVisibility(View.VISIBLE);
+        final String fetchUrl = url;
         App.run(new App.Task() {
             @Override
             public Object call() throws Exception {
-                return parse(Http.get(url.trim()));
+                return parse(Http.get(fetchUrl.trim()));
             }
         }, new App.Done() {
             @Override
