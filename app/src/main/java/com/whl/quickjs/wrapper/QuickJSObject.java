@@ -294,7 +294,7 @@ public class QuickJSObject implements JSObject {
 
     @Override // com.whl.quickjs.wrapper.JSObject
     public HashMap<String, Object> toMap(MapFilter mapFilter) {
-        return (HashMap) toMap(mapFilter, null, new c(10));
+        return (HashMap) toMap(mapFilter, null, null);
     }
 
     @Override // com.whl.quickjs.wrapper.JSObject

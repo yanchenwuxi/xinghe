@@ -437,12 +437,13 @@ public class QuickJSContext implements Closeable {
             return;
         }
         JSObject jSObject = getGlobalObject().getJSObject("console");
+        if (jSObject == null) {
+            return;
+        }
         jSObject.setProperty("stdout", new JSCallFunction() {
-            @Override // com.whl.quickjs.wrapper.JSCallFunction
-            public final Object call(Object[] objArr) {
-                Object lambda$setConsole$0;
-                lambda$setConsole$0 = QuickJSContext.lambda$setConsole$0(QuickJSContext.Console.this, objArr);
-                return lambda$setConsole$0;
+            @Override
+            public Object call(Object... objArr) {
+                return QuickJSContext.lambda$setConsole$0(console, objArr);
             }
         });
         jSObject.release();
